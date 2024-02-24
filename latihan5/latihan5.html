@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+
+<title>Formulir Pembelian E-Commerce</title>
+</head>
+<body>
+<form name="formPembelian">
+<h1>Formulir Pembelian Produk</h1>
+<hr>
+<label for="nama">Nama Lengkap:</label><br>
+<input type="text" id="nama" name="nama"><br><br>
+<label>Jenis Kelamin:</label><br>
+<input type="radio" id="pria" name="jenis_kelamin"
+value="Pria">
+<label for="pria">Pria</label><br>
+<input type="radio" id="wanita" name="jenis_kelamin"
+value="Wanita">
+<label for="wanita">Wanita</label><br><br>
+<label for="produk">Pilih Produk:</label><br>
+<select id="produk" name="produk">
+<option value="Laptop">Laptop</option>
+<option value="Smartphone">Smartphone</option>
+<option value="Tablet">Tablet</option>
+<option value="Earphone">Earphone</option>
+</select><br><br>
+<label for="alamat">Alamat Pengiriman:</label><br>
+<textarea id="alamat" name="alamat" rows="4"
+cols="30"></textarea><br><br>
+<label for="kota">Kota:</label><br>
+<select id="kota" name="kota">
+<option value="Jakarta">Jakarta</option>
+<option value="Bandung">Bandung</option>
+<option value="Surabaya">Surabaya</option>
+<option value="Medan">Medan</option>
+</select><br><br>
+<label for="catatan">Catatan Tambahan:</label><br>
+<textarea id="catatan" name="catatan" rows="4"
+cols="30"></textarea><br><br>
+<label>Pilih Metode Pembayaran:</label><br>
+<input type="checkbox" id="transfer"
+name="metode_pembayaran" value="Transfer Bank">
+<label for="transfer">Transfer Bank</label><br>
+<input type="checkbox" id="cod" name="metode_pembayaran"
+value="Cash on Delivery">
+<label for="cod">Cash on Delivery</label><br><br>
+<input type="button" value="Tampilkan Summary"
+onclick="tampilkanSummary()">
+<hr>
+<h2>Summary Pembelian:</h2>
+<div id="summary"></div>
+</form>
+<script>
+function tampilkanSummary() {
+var form = document.forms["formPembelian"];
+var summary = document.getElementById("summary");
+var nama = form.elements["nama"].value;
+var jenisKelamin =
+form.elements["jenis_kelamin"].value;
+var produk = form.elements["produk"].value;
+var alamat = form.elements["alamat"].value;
+var kota = form.elements["kota"].value;
+var catatan = form.elements["catatan"].value;
+var metodePembayaran = [];
+var metodePembayaranElements =
+form.elements["metode_pembayaran"];
+for (var i = 0; i < metodePembayaranElements.length;
+i++) {
+if (metodePembayaranElements[i].checked) {
+metodePembayaran.push(metodePembayaranElements[i].value);
+}
+}
+summary.innerHTML = "<p>Nama: " + nama + "</p>" +
+"<p>Jenis Kelamin: " + jenisKelamin + "</p>" +
+"<p>Produk yang Dibeli: " + produk + "</p>" +
+"<p>Alamat Pengiriman: " + alamat + "</p>" +
+"<p>Kota: " + kota + "</p>" +
+"<p>Catatan Tambahan: " + catatan + "</p>" +
+
+"<p>Metode Pembayaran: " +
+
+(metodePembayaran.length > 0 ? metodePembayaran.join(", ") :
+"Belum dipilih") + "</p>";
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+
+<title>Grade Siswa</title>
+</head>
+<body>
+<h2>Masukkan nilai siswa</h2>
+<form id="siswaForm">
+<label for="nama">Nama Siswa:</label><br>
+<input type="text" id="nama" name="nama"><br>
+<label for="nilai">Nilai Siswa:</label><br>
+<input type="number" id="nilai" name="nilai"><br><br>
+<!-- Tambahkan id untuk tombol -->
+<button type="button" id="hitungButton">Hitung
+Grade</button>
+</form>
+<div id="hasilGrade"></div>
+<script src="script.js">
+</script>
+<script>
+document.getElementById("hitungButton").addEventListener("click",
+hitungGrade);
+</script>
+</body>
+</html>
